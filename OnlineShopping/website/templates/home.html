@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <style>
+    nav{
+      background-color: white;
+    }
+    .one-edge-shadow {
+              box-shadow: 0 5px 5px -5px rgb(0, 245, 245);
+}
+.display-8{
+  font-weight: 200;
+  font-size: 30px;
+  font-colour: $teal-200;
+}
+  </style>
+  <script src="https://kit.fontawesome.com/50e38d6ea9.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <nav class="one-edge-shadow
+  navbar navbar-light
+  sticky-top navbar
+  navbar-expand-lg
+  text-white">
+    <a class="navbar-brand ms-3 text-dark " style="font-size: 25px;">
+      <i class="fa-solid fa-shirt fa-xl"></i> Fashion Store
+    </a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/website"> <i class="fa-solid fa-house"></i> Home<span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+      <ul class=" navbar-nav my-2 my-lg-0">
+        <li class="nav-item active">
+          <a class="nav-link" href="/cart"><i class="fa-solid fa-cart-shopping"></i> Cart
+            <span class="badge badge-success" style="background-color: rgb(0, 245, 245);color:#000000;">{{request.session.cart.keys|length}}</span>
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+        {% if request.session.customer %}
+        <li class="nav-item active ">
+          <a class="nav-link" href="/orders"><i class="fa-solid fa-boxes-stacked"></i> Orders
+            <span class="badge badge-success" style="background-color: rgb(0, 245, 245);color:#000000;">{{orders|length}}</span>
+            <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active ">
+          <a class="nav-link" href="/logout"><i class="fa-solid fa-right-from-bracket"></i> Logout<span class="sr-only">(current)</span></a>
+        </li>
+        {% else %}
+        <li class="nav-item active">
+          <a class="nav-link" href="/signup"><i class="fa-solid fa-user-plus"></i> Signup<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/login"><i class="fa-solid fa-user"></i> Login<span class="sr-only">(current)</span></a>
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+  </nav>
+  {% block content %}
+  {% endblock %}
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous">
+  </script>
+</body>
+</html>

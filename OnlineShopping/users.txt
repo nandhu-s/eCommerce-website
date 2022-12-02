@@ -1,0 +1,8 @@
+admins:
+1) Username: admin; email: admin@t.com
+
+Users:
+1) test1@t.com
+2) test2@t.com
+
+(Passwords are same as mail address)
